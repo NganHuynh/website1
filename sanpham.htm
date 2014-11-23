@@ -1,0 +1,608 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Fashion Shop</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="generator" content="" />
+<script src="snowstorm.js"></script>
+
+<style>
+		.black_overlay{
+			display: none;
+			position: absolute;
+			top: 0%;
+			left: 0%;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			z-index:1001;
+			-moz-opacity: 0.8;
+			opacity:.80;
+			filter: alpha(opacity=80);
+		}
+		.white_content {
+			color:black;
+			display: none;
+			position: absolute;
+			top: 25%;
+			left: 35%;
+			width: 20%;
+			height: 20%;
+			padding: 50px;
+			border: 16px solid #E000FF;
+			background-color: white;
+			z-index:1002;
+			overflow: auto;
+		}
+		.white_content2 {
+			color:black;
+			display: none;
+			position: absolute;
+			top: 25%;
+			left: 35%;
+			width: 30%;
+			height: 30%;
+			padding: 50px;
+			border: 16px solid #E000FF;
+			background-color: white;
+			z-index:1002;
+			overflow: auto;
+		}
+	#sanpham a img{
+	
+	border: 1px solid #BBB;
+	padding: 2px;
+	margin: 10px 20px 10px 0;
+	vertical-align: top;
+	width:170px;
+	height:225px;
+	}
+	#sanpham a{color:white;}
+		
+</style>
+
+
+<link rel="stylesheet" type="text/css" href="stylesheet_tm.css" />
+
+
+
+
+
+
+<link rel="stylesheet" href="orbit-1.2.3.css">
+<link rel="stylesheet" href="demo-style.css">
+<script type="text/javascript" src="jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="jquery.orbit-1.2.3.js"></script>
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script>
+		!window.jQuery && document.write('<script src="jquery-1.4.3.min.js"><\/script>');
+	</script>
+	<script type="text/javascript" src="./fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+	<script type="text/javascript" src="./fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<link rel="stylesheet" type="text/css" href="./fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+	
+
+
+
+<script type="text/javascript" src="http://jscart.googlecode.com/svn/jscart.js"></script> 
+<script type="text/javascript">
+   simpleCart.email = "email@address.com";
+   simpleCart.checkoutTo = PayPal;
+// simpleCart.merchantId = "118575326044237";
+// simpleCart.checkoutTo = GoogleCheckout;
+   simpleCart.currency = USD;
+// simpleCart.currency = GBP;
+// simpleCart.currency = EUR;
+   simpleCart.taxRate  = 0.078;
+// simpleCart.shippingFlatRate = 5.25;
+   simpleCart.shippingQuantityRate = 1.00;
+
+/* 
+   CartItem.prototype.shipping = function(){
+        if( this.size ){
+                switch( this.size.toLowerCase() ){
+                        case 'small':
+                                return this.quantity * 10.00;
+                        case 'medium':
+                                return this.quantity * 12.00;
+                        case 'large':
+                                return this.quantity * 15.00;
+                        case 'bull':
+                                return 45.00;
+                        default:
+                                return this.quantity * 5.00;
+                }
+        }
+};
+*/
+
+simpleCart.cartHeaders = ["Thumb_image_noHeader", "Tên sản phẩm" , "Size_input_div_div", "Giá sản phẩm" , "decrement_noHeader" , "Số lượng", "increment_noHeader", "remove_noHeader", "Tổng cộng" ];
+</script>
+
+
+<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			*   Examples - images
+			*/
+
+			$("a#example1").fancybox();
+
+			$("a#example2").fancybox({
+				'overlayShow'	: false,
+				'transitionIn'	: 'elastic',
+				'transitionOut'	: 'elastic'
+			});
+
+			$("a#example3").fancybox({
+				'transitionIn'	: 'none',
+				'transitionOut'	: 'none'	
+			});
+
+			$("a#example4").fancybox({
+				'opacity'		: true,
+				'overlayShow'	: false,
+				'transitionIn'	: 'elastic',
+				'transitionOut'	: 'none'
+			});
+
+			$("a#example5").fancybox();
+
+			$("a#example6").fancybox({
+				'titlePosition'		: 'outside',
+				'overlayColor'		: '#000',
+				'overlayOpacity'	: 0.9
+			});
+
+			$("a#example7").fancybox({
+				'titlePosition'	: 'inside'
+			});
+
+			$("a#example8").fancybox({
+				'titlePosition'	: 'over'
+			});
+
+			$("a[rel=example_group]").fancybox({
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'titlePosition' 	: 'over',
+				'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
+					return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+				}
+			});
+
+			/*
+			*   Examples - various
+			*/
+
+			$("#various1").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+
+			$("#various2").fancybox();
+
+			$("#various3").fancybox({
+				'width'				: '75%',
+				'height'			: '75%',
+				'autoScale'			: false,
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'type'				: 'iframe'
+			});
+
+			$("#various4").fancybox({
+				'padding'			: 0,
+				'autoScale'			: false,
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+		});
+	</script>
+
+
+</head>
+<!-- Run the plugin -->
+		<script type="text/javascript">
+			$(window).load(function() {
+				$('#featured').orbit();
+			});
+		</script>
+
+
+<body id="indexBody">
+
+<!-- ========== IMAGE BORDER TOP ========== -->
+
+<div class="main-width">
+
+<!-- ====================================== -->
+
+
+<!-- ========== HEADER ========== -->
+
+
+
+    <div id="header">
+		<div class="wrapper">
+			<div class="left-head">
+				<div class="logo">
+					<!-- ========== LOGO ========== -->
+						<a href="#"><img src="logo.jpg" tppabs="http://livedemo00.template-help.com/zencart_33532/includes/templates/theme486/images/logo.jpg" alt="" width="243" height="120" /></a>
+					<!-- ========================== -->
+				</div>
+			</div>
+			<div class="right-top">
+				<div class="lang">
+					<!-- ========== LANGUAGES ========== -->
+						<a href="#"><img src="http://est.congdulich.com/estores/muasam_lamdep2_p/images/vietnam.gif" alt="English" title=" English " width="24" height="15"  style="vertical-align:middle;" /></a>		 
+						<a href="#"><img src="icon.gif" alt="English" title=" English " width="24" height="15"  style="vertical-align:middle;" /></a>			<!-- =============================== -->
+				</div>
+				<div class="navigation">
+					<!-- ========== NAVIGATION LINKS ========== -->
+							<a href="index.htm">Trang chủ</a>
+							
+													&nbsp; | &nbsp; <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Đăng nhập</a>  
+						  
+						
+											<!-- ====================================== -->
+				</div>
+				<div id="light" class="white_content">
+		<center>
+		
+		<p>Bảng đăng nhập thành viên</p>
+		<form name="form1" method="post" action="">
+		  <label>Tên tài khoản : 
+		    <input type="text" name="textfield">
+	      </label>
+    </form>
+		<form name="form2" method="post" action="">
+		  <label>Mật khẩu :
+		    <input type="text" name="textfield2">
+	      </label>
+    </form>
+		<form name="form3" method="post" action="">
+		  <label>
+		  <input name="Đăng nhập" type="submit" id="Đăng nhập" value="Đăng nhập">
+	      </label>
+          <input name="Làm lại" type="reset" id="Làm lại" value="Làm lại">
+		</form>
+		<p>&nbsp;</p>
+		
+		</center>
+		
+		
+		
+		
+		<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Đóng</a></div>
+		<div id="fade" class="black_overlay"></div>
+			</div>
+			<div class="right-head">
+				<div class="search">
+					<!-- ========== SEARCH ========== -->
+						<form name="quick_find_header" action="#" method="get">							<div>
+						<input type="hidden" name="main_page" value="advanced_search_result" /><input type="hidden" name="search_in_description" value="1" />						<span class="corner"></span>
+						<input type="text" name="keyword" value="Nhập nội dung cần tìm" class="input1" onblur="if(this.value=='') this.value='Nhập nội dung cần tìm'" onfocus="if(this.value =='Nhập nội dung cần tìm' ) this.value=''" />						<input type="image" src="search.gif" alt="Search" title=" Search " class="input2"  />						
+						
+							</div>
+						</form>
+					<!-- ============================ -->
+				</div>
+				<div class="cart">
+					<!-- ========== SHOPPING CART ========== -->
+												<!--<a href="#"><span class="st2">0 sản phẩm</span></a></span>--> 
+												
+											<div id="viewcart" class="white_content2">
+		<center>
+		
+		<p>Giỏ hàng của bạn</p>
+		<div class="simpleCart_items" ></div>
+<div style="clear:left"></div>
+
+
+
+Tổng phụ : <span class="simpleCart_total"></span> <br />
+Thuế : <span class="simpleCart_taxCost"></span><br />
+Phí vận chuyển: <span class="simpleCart_shippingCost"></span><br />
+
+<span id="couponcode"></span><br />
+Tổng cộng: <span class="simpleCart_finalTotal"></span><br />
+<a href="#" class="simpleCart_checkout"><font color="#FF0000">Thanh toán đơn hàng</font></a>
+		
+		</center>
+		
+		
+		
+		
+		<a href = "javascript:void(0)" onclick = "document.getElementById('viewcart').style.display='none';document.getElementById('fade').style.display='none'">Đóng</a></div>
+		<div id="fade" class="black_overlay"></div>
+		
+												
+												 Giỏ hàng : <span class="simpleCart_total"></span> (<span class="simpleCart_quantity"></span> sản phẩm) <br />
+   <a href="javascript:;" class="simpleCart_empty"><font color="#FFFFFF">Xóa giỏ hàng</font></a> | <a href = "javascript:void(0)" onclick = "document.getElementById('viewcart').style.display='block';document.getElementById('fade').style.display='block'" class="viewcart"><font color="#FFFFFF">Xem giỏ hàng</font></a>
+					<!-- =================================== -->
+				</div>
+			</div>
+		</div>
+		<div class="wrapper box2">
+			<div class="menu">
+				<!-- ========== MENU ========== -->
+													<div id="navEZPagesTop"> 
+  <ul> 
+     
+                <li> 
+                    <a href="index.htm"> 
+                        <span> 
+                            <span>Trang chủ </span> 
+                        </span> 
+                    </a> 
+                </li> 
+             
+                <li class="selected"> 
+                    <a href="sanpham.htm"> 
+                        <span> 
+                            <span>Sản phẩm </span> 
+                        </span> 
+                    </a> 
+                </li> 
+             
+                <li class=""> 
+                    <a href="#"> 
+                        <span> 
+                            <span>Tin tức</span> 
+                        </span> 
+                    </a> 
+                </li> 
+             
+               
+             
+               
+             
+                <li class=""> 
+                    <a href="#"> 
+                        <span> 
+                            <span>Liên hệ - hỗ trợ</span> 
+                        </span> 
+                    </a> 
+                </li> 
+             
+                <li class=""> 
+                    <a href="#"> 
+                        <span> 
+                            <span>Điều khoản</span> 
+                        </span> 
+                    </a> 
+                </li> 
+             
+  </ul> 
+</div>
+										<!-- ========================== -->
+			</div>
+			<div class="currencies">
+				<!-- ========== CURRENCIES ========= -->
+					<form name="currencies">						<div>
+							Tiền tệ: &nbsp;
+					
+														<select name="currency" class="select" onchange="this.form.submit();">
+  <option value="USD" selected="selected">Việt Nam Đồng</option>
+  <option value="EUR">US - Dolla</option>
+  <option value="GBP">GB Pound</option>
+  <option value="CAD">Canadian Dollar</option>
+  <option value="AUD">Australian Dollar</option>
+</select>
+<input type="hidden" name="main_page" value="index" />						</div>
+					</form>
+				<!-- ====================================== -->
+			</div>
+		</div>
+	</div>
+    
+
+	   
+
+
+
+
+	<!-- ========== CATEGORIES TABS ========= -->
+			<!-- ==================================== -->
+                
+
+<!-- ============================ -->
+<div class="banners">
+<div id="sanpham">
+
+<table width="200" border="1">
+ <tr>
+    <td><a id="example4" href="./example/1_b.jpg"><img alt="example4" src="./example/1_s.jpg" /></a> </td>
+    <td><a id="example4" href="./example/2_b.jpg"><img alt="example4" src="./example/2_s.jpg" /></a></td>
+    <td><a id="example4" href="./example/3_b.jpg"><img alt="example4" src="./example/3_s.jpg" /></a></td>
+    <td><a id="example4" href="./example/4_b.jpg"><img alt="example4" src="./example/4_s.jpg" /></a></td>
+    <td><a id="example4" href="./example/5_b.jpg"><img alt="example4" src="./example/5_s.jpg" /></a></td>
+ 
+  </tr>
+  <tr>
+    <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/1_s.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+   <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/2_s.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+    <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/3_s.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+     <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/4_s.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+ <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/5_s.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+  </tr>
+  <tr>
+    <td><a id="example4" href="./example/1.jpg"><img alt="example4" src="example/1.jpg" /></a> </td>
+    <td><a id="example4" href="./example/2.jpg"><img alt="example4" src="example/2.jpg" /></a></td>
+    <td><a id="example4" href="./example/3.jpg"><img alt="example4" src="example/3.jpg" /></a></td>
+    <td><a id="example4" href="./example/4.jpg"><img alt="example4" src="example/4.jpg" /></a></td>
+    <td><a id="example4" href="./example/1.jpg"><img alt="example4" src="example/5.jpg" /></a></td>
+  </tr>
+  <tr>
+     <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/1.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+   <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/2.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+    <td><a href="#" onclick="simpleCart.add('name= loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/3.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+     <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/4.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+ <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/5.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+  </tr>
+  <tr>
+    <td><a id="example4" href="./example/12.jpg"><img alt="example4" src="example/12.jpg" /></a> </td>
+    <td><a id="example4" href="./example/13.jpg"><img alt="example4" src="example/13.jpg" /></a></td>
+    <td><a id="example4" href="./example/14.jpg"><img alt="example4" src="example/14.jpg" /></a></td>
+    <td><a id="example4" href="./example/15.jpg"><img alt="example4" src="example/15.jpg" /></a></td>
+    <td><a id="example4" href="./example/16.jpg"><img alt="example4" src="example/16.jpg" /></a></td>
+  </tr>
+  <tr>
+      <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/12.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+   <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/13.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+    <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/14.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+     <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/15.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+ <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/16.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+  </tr>
+  <tr>
+  <td><a id="example4" href="./example/17.jpg"><img alt="example4" src="example/17.jpg" /></a> </td>
+    <td><a id="example4" href="./example/18.jpg"><img alt="example4" src="example/18.jpg" /></a></td>
+    <td><a id="example4" href="./example/19.jpg"><img alt="example4" src="example/19.jpg" /></a></td>
+    <td><a id="example4" href="./example/20.jpg"><img alt="example4" src="example/20.jpg" /></a></td>
+    <td><a id="example4" href="./example/21.jpg"><img alt="example4" src="example/21.jpg" /></a></td>
+  </tr>
+  <tr>
+       <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/17s.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+   <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/18.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+    <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/19.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+     <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/20.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+ <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/21.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+  </tr>
+  <tr>
+    <td><a id="example4" href="./example/22.jpg"><img alt="example4" src="example/22.jpg" /></a> </td>
+    <td><a id="example4" href="./example/23.jpg"><img alt="example4" src="example/23.jpg" /></a></td>
+    <td><a id="example4" href="./example/24.jpg"><img alt="example4" src="example/24.jpg" /></a></td>
+    <td><a id="example4" href="./example/25.jpg"><img alt="example4" src="example/25.jpg" /></a></td>
+    <td><a id="example4" href="./example/26.jpg"><img alt="example4" src="example/26.jpg" /></a></td>
+  </tr>
+  <tr>
+      <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/22.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+   <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/23.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+    <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/24.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+     <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/25.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+ <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/26.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+  </tr>
+  <tr>
+  <td><a id="example4" href="./example/27.jpg"><img alt="example4" src="example/27.jpg" /></a> </td>
+    <td><a id="example4" href="./example/28.jpg"><img alt="example4" src="example/28.jpg" /></a></td>
+    <td><a id="example4" href="./example/29.jpg"><img alt="example4" src="example/29.jpg" /></a></td>
+    <td><a id="example4" href="./example/11.jpg"><img alt="example4" src="example/11.jpg" /></a></td>
+    <td><a id="example4" href="./example/30.jpg"><img alt="example4" src="example/30.jpg" /></a></td>
+  </tr>
+  <tr>
+     <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/27.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+   <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/28.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+    <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/29.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+     <td><a href="#" onclick="simpleCart.add('name=loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/11s.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+ <td><a href="#" onclick="simpleCart.add('name=Nhẫn loại 1', 'price=34.95','size=Default','quantity=1','thumb=example/30.jpg'); alert('Đã thêm vào giỏ thành công. Vui lòng click nút Xem Giỏ Hàng để xem các sản phẩm bạn đã chọn')"><span style="margin-left:50px">CHO VÀO GIỎ</span></a></td>
+  </tr>
+ 
+</table>
+
+
+		
+		</div>
+	<!--<div id='coin-slider'>
+		
+		<div id="featured"> 
+			<a href=""><img src="dummy-images/banner1.jpg" /></a>
+			<img src="dummy-images/banner2.jpg" data-caption="#htmlCaption" />
+			<img src="dummy-images/banner3.jpg"  />
+		</div>
+		
+		<span class="orbit-caption" id="htmlCaption"><strong>I'm A Badass Caption:</strong> I can haz <a href="#">links</a>, <em>style</em> or anything that is valid markup :)</span>
+				
+			
+	</div>
+	-->
+</div>
+			<div id="aside">
+	<div class="inner wrapper">
+		<div class="aside-nav fleft">
+			<ul class="list1">
+				<li><a href="#">Trang chủ</a></li>
+				<li><a href="#">Sản phẩm mới</a></li>
+				<li><a href="#">Sản phẩm hot</a></li>
+				<li><a href="#">Tạo tài khoản</a></li>
+				<li><a href="#">Liên hệ</a></li>
+			</ul>
+			<ul class="list1 alt">
+				<li><a href="#">Có gì mới?</a></li>
+				<li><a href="#">Liên hệ</a></li>
+				<li><a href="#">Đánh giá</a></li>
+				<li><a href="#">Giỏ hàng</a></li>
+				<li><a href="#">Thanh toán</a></li>
+			</ul>
+			<ul class="list1 alt last">
+				<li><a href="#">Sản phẩm</a></li>
+				<li><a href="#">Dịch vụ</a></li>
+				<li><a href="#">Lịch sử mua hàng</a></li>
+				<li><a href="#">Giảm giá</a></li>
+				<li><a href="#">Bản đồ Site</a></li>
+			</ul>
+		</div>
+		<div class="banner fright">
+			<!-- BOF- BANNER #5 display -->
+									<div id="bannerFive"><a href="#"><img src="banner5.jpg" alt="Free Gift" title=" Free Gift " width="311" height="149" /></a></div>
+						<!-- EOF- BANNER #5 display -->
+		</div>
+	</div>
+</div>
+
+
+<!-- ========== FOOTER ========== -->
+
+
+
+
+
+
+
+
+<div id="footer">
+	<div class="wrapper">
+		<div class="cards fright">
+				<!-- ========== CARDS ========== -->
+					<img src="cards.gif" alt="" width="128" height="22" />				<!-- =========================== -->			
+		</div>
+		<div><!-- {%FOOTER_LINK} --></div>
+	</div>
+</div>
+
+				
+
+
+<!-- ============================ -->
+
+
+
+<!--bof- parse time display -->
+<!--eof- parse time display -->
+
+
+
+<!-- BOF- BANNER #6 display -->
+<!-- EOF- BANNER #6 display -->
+
+
+
+
+<!-- ========== IMAGE BORDER BOTTOM ========== -->
+
+    </div>
+
+<!-- ========================================= -->
+
+    <audio controls loop autoplay>
+   <source src="nhac.mp3" type="audio/mp3" />
+</audio>
+
+</body></html>

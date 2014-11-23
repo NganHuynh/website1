@@ -1,0 +1,252 @@
+
+/* ----------------------- BOXES ------------------------- */
+
+.box {margin-bottom:2px;}
+
+.box-head {
+	color:#fff;
+	font-size:16px;
+	line-height:16px;
+	background:url(box-head-bg.jpg)/*tpa=http://livedemo00.template-help.com/zencart_33532/includes/templates/theme486/images/box-head-bg.jpg*/ repeat left top;
+	position:relative;
+	padding:17px 0 15px 50px;
+}
+.box-head .marker{
+	background:url(marker2.gif)/*tpa=http://livedemo00.template-help.com/zencart_33532/includes/templates/theme486/images/marker2.gif*/ no-repeat left top;
+	width:7px;
+	height:7px;
+	position:absolute;
+	top:22px;
+	left:35px;
+}
+.box-head a { color:#fff; text-decoration: none;}
+.box-head a:hover { text-decoration:underline;}
+
+.box-body {
+	background:#fff;
+}
+
+.box-body ul {margin:0 0 0 0; padding:15px 0 31px 0; list-style:none;}
+.box-body ul li {
+	padding-left:39px;
+}
+.box-body ul li a {
+	color:#000;
+	font-size:15px;
+	line-height:31px;
+	text-decoration:none;
+	background:url(marker3.gif)/*tpa=http://livedemo00.template-help.com/zencart_33532/includes/templates/theme486/images/marker3.gif*/ no-repeat left 5px;
+	padding-left:14px;
+}
+.box-body ul li a:hover {
+	color:#9799e8;
+}
+
+.box-body ul li.category-products a:hover,
+.box-body ul li .category-subs-parent-selected,
+.box-body ul li .category-subs-selected{
+	color:#9799e8;
+}
+.box-body ul li.category-products{
+	padding-left:55px!important;
+}
+.box-body ol {margin:0; padding:0; list-style:none;}
+.box-body ol li {padding-left:39px;}
+.box-body ol li a {color:#000;
+	font-size:15px;
+	line-height:31px;
+	text-decoration:none;
+	background:url(marker3.gif)/*tpa=http://livedemo00.template-help.com/zencart_33532/includes/templates/theme486/images/marker3.gif*/ no-repeat left 5px;
+	padding-left:14px;}
+.box-body ol li a:hover {color:#9799e8;}
+
+
+/* ----------------------- LISTING BOXES ------------------------- */
+
+
+#categories {}
+
+
+#moreinformation {}
+
+
+#information {}
+
+
+#bestsellers {}
+
+
+#ezpages {}
+
+
+#orderhistory {}
+#orderhistory .box-body img {background:#FFFFFF; padding:2px; border:1px solid #AAAAAA; vertical-align:middle; margin:2px 0px 2px 0px;}
+#orderhistory .no-bg{ background:none; padding:0;}
+#orderhistory a{ display:inline;}
+#orderhistory  li a{ background:none; padding:0;}
+
+
+/* ----------------------- BANNER BOXES ------------------------- */
+
+#bannerbox {}
+#bannerbox .box-head{
+	display:none;
+}
+#bannerbox2 {}
+#bannerbox2 .box-head{
+	display:none;
+}
+#bannerboxall {}
+#bannerboxall .box-head{
+	display:none;
+}
+
+
+
+/* ----------------------- PRODUCT BOXES ------------------------- */
+
+#featured a img, 
+#whatsnew a img, 
+#specials a img, 
+#reviews a img, 
+#manufacturerinfo img, 
+#productnotifications img {margin:0 0 8px;}
+
+#reviews img {margin:5px 0 0;}
+
+
+
+#featured {}
+#featured .box-body{ text-align:center; padding-bottom:10px;}
+#featured .box-body .img{
+	padding-top:10px;
+}
+#featured .box-body .img img{
+	width:180px;
+	height:186px;
+}
+#featured  .name{
+	padding-bottom:8px;
+	display:inline-block;
+}
+#featured .box-body .normalprice {text-decoration:line-through; 	color:#181818;
+	font-size:16px;
+	line-height:18px;
+	font-weight:normal;}
+#featured .box-body .productSpecialPrice, .productSalePrice, .productSpecialPriceSale {	color:#181818;
+	font-size:16px;
+	line-height:18px;
+	font-weight:normal;}
+
+
+#whatsnew {}
+#whatsnew .box-body{ text-align:center; padding-bottom:10px;}
+#whatsnew .box-body .img{
+	padding-top:10px;
+}
+#whatsnew .box-body .img img{
+	width:180px;
+	height:186px;
+}#whatsnew  .name{
+	padding-bottom:8px;
+	display:inline-block;
+}
+#whatsnew .box-body .normalprice {text-decoration:line-through; 	color:#181818;
+	font-size:16px;
+	line-height:18px;
+	font-weight:normal;}
+#whatsnew .box-body .productSpecialPrice, .productSalePrice, .productSpecialPriceSale {	color:#181818;
+	font-size:16px;
+	line-height:18px;
+	font-weight:normal;}
+
+
+#specials {}
+#specials .box-body{ text-align:center; padding-bottom:10px;}
+#specials .box-body .img{
+	padding-top:10px;
+}
+#specials .box-body .img img{
+	width:180px;
+	height:186px;
+}
+#specials  .name{
+	padding-bottom:8px;
+	display:inline-block;
+}
+#specials .box-body .normalprice {text-decoration:line-through; 	color:#181818;
+	font-size:16px;
+	line-height:18px;
+	font-weight:normal;}
+#specials .box-body .productSpecialPrice, .productSalePrice, .productSpecialPriceSale {	color:#181818;
+	font-size:16px;
+	line-height:18px;
+	font-weight:normal;}
+
+
+#reviews {}
+#reviews .box-body{ text-align:center; padding:10px 0;}
+#reviews .box-body .img{
+	padding-top:10px;
+}
+#reviews .box-body .img img{
+	width:180px;
+	height:186px;
+}
+#manufacturerinfo {}
+
+
+#productnotifications {}
+#productnotifications .box-body{ text-align:center; padding:10px 0;}
+
+
+
+
+/* ----------------------- FORM BOXES ------------------------- */
+
+#search {}
+#search .box-body{ overflow:hidden; padding:10px 0;}
+#search input{ border:solid 0px; padding:0; background:none; vertical-align:middle; float:left;}
+#search .input1{ border:none; background:url(search-bg.gif)/*tpa=http://livedemo00.template-help.com/zencart_33532/includes/templates/theme486/images/search-bg.gif*/ repeat-x left top; padding:10px 3px; width:170px; color:#fff; margin-left:10px;}
+
+
+#manufacturers {}
+#manufacturers .box-body {text-align:center; padding:10px 0;}
+
+
+#currencies {}
+#currencies .box-body {text-align:center; padding:10px 0;}
+#currencies select{ width:90%;}
+
+#tellafriend {}
+#tellafriend .no-border input{ border:solid 0px; padding:0; }
+#tellafriend .box-body{padding:10px 0; text-align:center;}
+#recordcompanies {}
+#recordcompanies .box-body {text-align:center;}
+
+
+#musicgenres {}
+#musicgenres .box-body {text-align:center;}
+
+
+
+/* ----------------------- TEXT BOXES ------------------------- */
+
+#languages {}
+#languages .box-body {text-align:center; padding:10px 0;}
+
+
+#whosonline {}
+#whosonline .box-body {text-align:center; padding:10px 0;}
+
+
+#documentcategories {}
+
+
+#shoppingcart {}
+#shoppingcart .box-body{ padding:10px 0;}
+#shoppingcart .cart_line {}
+#shoppingcart #cartBoxEmpty {text-align:center;}
+#shoppingcart li{ padding-left:25px;}
+#shoppingcart li a{ padding:0; background:none;}
+#shoppingcart .price{ padding:0 15px 0 0; }
